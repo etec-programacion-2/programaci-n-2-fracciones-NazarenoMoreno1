@@ -16,4 +16,12 @@ class Fraccion(
             if (value == 0) throw IllegalArgumentException("El denominador no puede ser cero")
             _denominador = value
         }
+
+    override fun toString(): String {
+        return "$_numerador/$_denominador"
+    }
+
+    fun mostrar() {
+        println(this.toString())
+    }
 }
