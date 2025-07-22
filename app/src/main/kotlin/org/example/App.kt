@@ -6,11 +6,8 @@ package org.example
 fun main() {
     val fraccion1 = Fraccion(6, 9)
     val fraccion2 = Fraccion(4, -6)
-
-    print("Fracción 1 (6/9 simplificada): ")
-    fraccion1.mostrar()
     
-    print("Fracción 1: ")
+    print("Fracción 1 (6/9 simplificada): ")
     fraccion1.mostrar()
     
     print("Fracción 2: ")
@@ -19,7 +16,7 @@ fun main() {
     val suma = fraccion1 + fraccion2
     print("Suma: ")
     suma.mostrar()
-
+    
     val resta = fraccion1 - fraccion2
     print("Resta: ")
     resta.mostrar()

@@ -323,3 +323,28 @@ Tu App.kt está bien, la salida será:
 
 
 El problema era que tenías código de inicialización fuera de cualquier función o bloque, y la sintaxis con asteriscos no es válida en Kotlin. Con estos cambios debería funcionar correctamente.
+
+
+Pregunta:
+Tengo un problema con el init de mi código dentro del fraccion.kt, 
+
+Rta:
+Hay varias formas, pero la más clara es evitar crear otra instancia dentro de simplificar(). En vez de eso, simplemente modificá los valores actuales:
+🔧 SOLUCIÓN: Cambiá el init así:
+
+init {
+    if (_denominador == 0) {
+        throw IllegalArgumentException("El denominador no puede ser cero")
+    }
+
+    if (_denominador < 0) {
+        _numerador = -_numerador
+        _denominador = -_denominador
+    }
+
+    val divisorComun = mcd(_numerador, _denominador)
+    _numerador /= divisorComun
+    _denominador /= divisorComun
+}
+
+Y eliminá completamente el método simplificar() si ya no lo vas a usar en otro lado, o dejalo privado si lo necesitas más adelante.
