@@ -4,5 +4,49 @@
 package org.example
 
 fun main() {
-    println("Hola app!")
+    val fraccion1 = Fraccion(6, 9)
+    val fraccion2 = Fraccion(4, -6)
+    
+    print("Fracción 1 (6/9 simplificada): ")
+    fraccion1.mostrar()
+    
+    print("Fracción 2: ")
+    fraccion2.mostrar()
+    
+    val suma = fraccion1 + fraccion2
+    print("Suma: ")
+    suma.mostrar()
+    
+    val resta = fraccion1 - fraccion2
+    print("Resta: ")
+    resta.mostrar()
+
+    val multiplicacion = fraccion1 * fraccion2
+    print("Multiplicación: ")
+    multiplicacion.mostrar()
+    
+    val division = fraccion1 / fraccion2
+    print("División: ")
+    division.mostrar()
+
+    println("¿Fracción1 es mayor que Fracción2? ${fraccion1.esMayor(fraccion2)}")
+    println("¿Fracción1 es menor que Fracción2? ${fraccion1.esMenor(fraccion2)}")
+    println("¿Son iguales? ${fraccion1.equals(fraccion2)}")
+
+    val comparacion = fraccion1.compareTo(fraccion2)
+    when (comparacion) {
+        -1 -> println("Fracción1 es menor que Fracción2")
+        0 -> println("Fracción1 es igual a Fracción2")
+        1 -> println("Fracción1 es mayor que Fracción2")
+    }
+
+    println("Fracción1 en decimal: ${fraccion1.aDecimal()}")
+    println("Fracción2 en decimal: ${fraccion2.aDecimal()}")
+
+    val fraccionDesdeDecimal = Fraccion.desdeDecimal(0.75)
+    print("Fracción creada desde decimal 0.75: ")
+    fraccionDesdeDecimal.mostrar()
+
+    val fraccion3 = Fraccion(2, 3) // Equivalente a fraccion1 (6/9 simplificado)
+    println("¿Fracción1 es igual a Fracción3 (2/3)? ${fraccion1.equals(fraccion3)}")
 }
