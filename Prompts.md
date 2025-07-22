@@ -348,3 +348,14 @@ init {
 }
 
 Y eliminá completamente el método simplificar() si ya no lo vas a usar en otro lado, o dejalo privado si lo necesitas más adelante.
+
+Pregunta:
+Q es un companion object en kotlin
+
+Rta:
+En Kotlin, un companion object es un objeto especial definido dentro de una clase que permite acceder a sus miembros (propiedades y métodos) directamente a través del nombre de la clase, sin necesidad de crear una instancia de la misma. Es similar a los miembros estáticos en Java, pero con más flexibilidad. 
+
+Pregunta:
+Documenta el codigo usando "//" , esto hazlo por etapas no linea por linea y no de gran extension. Leguaje claro y sencillo.
+
+Rta: Codigo pusheado en la Etapa 4.
