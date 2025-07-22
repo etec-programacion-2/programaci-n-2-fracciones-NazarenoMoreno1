@@ -71,4 +71,25 @@ class Fraccion(
         val denominador1 = this._denominador * otra._denominador
         return Fraccion(numerador1, denominador1)
     }
+
+    operator fun times(otra: Fraccion): Fraccion {
+        if (otra._denominador == 0) {
+            throw IllegalArgumentException("No se puede operar con una fracción de denominador cero")
+        }
+        val numerador1 = this._numerador * otra._numerador
+        val denominador1 = this._denominador * otra._denominador
+        return Fraccion(numerador1, denominador1)
+    }
+
+    operator fun div(otra: Fraccion): Fraccion {
+        if (otra._denominador == 0) {
+            throw IllegalArgumentException("No se puede operar con una fracción de denominador cero")
+        }
+        if (otra._numerador == 0) {
+            throw IllegalArgumentException("No se puede dividir por una fracción con numerador cero")
+        }
+        val numerador1 = this._numerador * otra._denominador
+        val denominador1 = this._denominador * otra._numerador
+        return Fraccion(numerador1, denominador1)
+    }
 }

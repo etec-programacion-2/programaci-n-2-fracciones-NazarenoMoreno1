@@ -20,4 +20,12 @@ fun main() {
     val resta = fraccion1 - fraccion2
     print("Resta: ")
     resta.mostrar()
+
+    val multiplicacion = fraccion1 * fraccion2
+    print("Multiplicación: ")
+    multiplicacion.mostrar()
+    
+    val division = fraccion1 / fraccion2
+    print("División: ")
+    division.mostrar()
 }
