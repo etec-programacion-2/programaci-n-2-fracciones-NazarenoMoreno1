@@ -3,7 +3,54 @@
  */
 package org.example
 
+import java.util.Scanner
+// Ya no necesitamos importar InputMismatchException porque la manejamos de otra forma.
+
 fun main() {
+    val scanner = Scanner(System.`in`)
+    val calculadora = Calculadora()
+    var opcion: Int = -1 // Inicializamos con un valor para que el bucle comience
+    
+    do {
+        calculadora.mostrarMenu()
+        val input = scanner.nextLine() // Leemos la línea completa como String.
+        
+        try {
+            // Intentamos convertir la entrada a un número entero.
+            opcion = input.toInt()
+            
+            when (opcion) {
+                1 -> calculadora.realizarSuma(scanner)
+                2 -> calculadora.realizarResta(scanner)
+                3 -> calculadora.realizarMultiplicacion(scanner)
+                4 -> calculadora.realizarDivision(scanner)
+                5 -> calculadora.realizarComparacion(scanner)
+                6 -> calculadora.convertirADecimal(scanner)
+                7 -> calculadora.crearDesdeDecimal(scanner)
+                8 -> calculadora.mostrarEjemplos()
+                0 -> println("Cerrando la calculadora...")
+                else -> println("Opción inválida. Intente de nuevo seleccionando una opción del menú.")
+            }
+        } catch (e: NumberFormatException) {
+            // Capturamos el error si la entrada no es un número.
+            println("Entrada no válida. Por favor, ingrese un número entero del menú.")
+            opcion = -1 // Establecemos una opción inválida para que el bucle continúe.
+        }
+        
+        // Esperamos que el usuario presione Enter antes de volver a mostrar el menú,
+        // a menos que la opción haya sido 0 (salir) o -1 (error de entrada).
+        if (opcion != 0 && opcion != -1) {
+            println("\nPresione Enter para continuar...")
+            scanner.nextLine()
+        }
+    } while (opcion != 0)
+    
+    scanner.close()
+}
+
+// Función opcional para mostrar el código original como demostración
+fun ejecutarCodigoOriginal() {
+    println("=== DEMOSTRACIÓN DEL CÓDIGO ORIGINAL ===")
     val fraccion1 = Fraccion(6, 9)
     val fraccion2 = Fraccion(4, -6)
     
@@ -20,7 +67,7 @@ fun main() {
     val resta = fraccion1 - fraccion2
     print("Resta: ")
     resta.mostrar()
-
+    
     val multiplicacion = fraccion1 * fraccion2
     print("Multiplicación: ")
     multiplicacion.mostrar()
@@ -28,25 +75,26 @@ fun main() {
     val division = fraccion1 / fraccion2
     print("División: ")
     division.mostrar()
-
+    
+    // CORREGIDO: "fracaccion1" se ha cambiado a "fraccion1"
     println("¿Fracción1 es mayor que Fracción2? ${fraccion1.esMayor(fraccion2)}")
     println("¿Fracción1 es menor que Fracción2? ${fraccion1.esMenor(fraccion2)}")
     println("¿Son iguales? ${fraccion1.equals(fraccion2)}")
-
+    
     val comparacion = fraccion1.compareTo(fraccion2)
     when (comparacion) {
         -1 -> println("Fracción1 es menor que Fracción2")
         0 -> println("Fracción1 es igual a Fracción2")
         1 -> println("Fracción1 es mayor que Fracción2")
     }
-
+    
     println("Fracción1 en decimal: ${fraccion1.aDecimal()}")
     println("Fracción2 en decimal: ${fraccion2.aDecimal()}")
-
+    
     val fraccionDesdeDecimal = Fraccion.desdeDecimal(0.75)
     print("Fracción creada desde decimal 0.75: ")
     fraccionDesdeDecimal.mostrar()
-
+    
     val fraccion3 = Fraccion(2, 3) // Equivalente a fraccion1 (6/9 simplificado)
     println("¿Fracción1 es igual a Fracción3 (2/3)? ${fraccion1.equals(fraccion3)}")
 }

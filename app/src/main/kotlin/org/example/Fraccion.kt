@@ -106,7 +106,7 @@ class Fraccion(
         return Fraccion(numerador1, denominador1)
     }
 
-    // ETAPA 4: Operador de comparación
+    // Operador de comparación
     // Parámetro: otra - fracción a comparar
     // Retorna: -1 si es menor, 0 si es igual, 1 si es mayor
     operator fun compareTo(otra: Fraccion): Int {
@@ -122,7 +122,7 @@ class Fraccion(
         }
     }
 
-    // ETAPA 4: Operador de igualdad
+    // Operador de igualdad
     // Parámetro: other - objeto a comparar
     // Retorna: true si las fracciones son iguales, false en caso contrario
     override fun equals(other: Any?): Boolean {
@@ -131,27 +131,27 @@ class Fraccion(
         return this._numerador == other._numerador && this._denominador == other._denominador
     }
 
-    // ETAPA 4: Verificar si esta fracción es mayor que otra
+    // Verificar si esta fracción es mayor que otra
     // Parámetro: otra - fracción a comparar
     // Retorna: true si esta fracción es mayor, false en caso contrario
     fun esMayor(otra: Fraccion): Boolean {
         return this.compareTo(otra) > 0
     }
 
-    // ETAPA 4: Verificar si esta fracción es menor que otra
+    // Verificar si esta fracción es menor que otra
     // Parámetro: otra - fracción a comparar
     // Retorna: true si esta fracción es menor, false en caso contrario
     fun esMenor(otra: Fraccion): Boolean {
         return this.compareTo(otra) < 0
     }
 
-    // ETAPA 4: Convertir fracción a decimal
+    // Convertir fracción a decimal
     // Retorna: representación decimal de la fracción
     fun aDecimal(): Double {
         return _numerador.toDouble() / _denominador.toDouble()
     }
 
-    // ETAPA 4: Companion object para métodos estáticos
+    // Companion object para métodos estáticos
     companion object {
         // Crear fracción desde un valor decimal
         // Parámetro: decimal - valor decimal a convertir

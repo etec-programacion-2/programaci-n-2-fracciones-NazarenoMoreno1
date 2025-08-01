@@ -10,7 +10,7 @@
 
 **Curso:** [4° I]
 
-**Fecha de entrega:** [Escribir aquí la fecha de entrega]
+**Fecha de entrega:** [1/8/2025]
 
 ---
 

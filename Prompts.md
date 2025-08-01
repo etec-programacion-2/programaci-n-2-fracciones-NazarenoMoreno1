@@ -359,3 +359,74 @@ Pregunta:
 Documenta el codigo usando "//" , esto hazlo por etapas no linea por linea y no de gran extension. Leguaje claro y sencillo.
 
 Rta: Codigo pusheado en la Etapa 4.
+
+Pregunta:
+Le pedi que me haga una base del codigo explicandole ya que no sabia como encarar la etapa 5 de la tarea; luego pregunte esto:
+
+¿Puedes explicarme esta sección con más detalle?
+
+private val scanner = Scanner(System.`in`)
+
+Rta:
+private significa que esta variable solo puede ser accedida desde dentro de la misma clase
+No es visible desde otras clases o desde fuera de Calculadora
+Es una buena práctica de encapsulamiento
+
+val significa que es una variable inmutable (solo lectura)
+Una vez asignada, no puedes cambiar la referencia del scanner
+Es equivalente a final en Java
+
+scanner es el nombre que le damos a nuestra variable
+Por convención, usamos camelCase en Kotlin
+
+Scanner es una clase de Java que permite leer entrada del usuario
+Está en el paquete java.util.Scanner
+Por eso necesitamos el import java.util.Scanner al inicio del archivo
+
+System.in representa la entrada estándar del sistema (normalmente el teclado)
+Las backticks () alrededor de inson necesarias porquein` es una palabra reservada en Kotlin
+En Java sería simplemente System.in, pero Kotlin requiere las backticks
+
+System.`in`  // ✅ Correcto en Kotlin
+System.in    // ❌ Error de compilación
+
+Pregunta:
+Desde el código que generaste de base:
+¿Puedes explicarme esta sección con más detalle?
+
+private fun leerFraccion(mensaje: String): Fraccion?
+
+Rta:
+private significa que esta función solo puede ser llamada desde dentro de la misma clase Calculadora
+No es accesible desde otras clases o desde App.kt
+Es una función de utilidad interna de la clase
+
+fun es la palabra clave de Kotlin para declarar funciones
+Equivalente a function en otros lenguajes o métodos en Java
+
+mensaje: nombre del parámetro
+String: tipo del parámetro
+Esta función recibe un texto que mostrará al usuario
+
+Fraccion?: La función puede retornar una Fraccion o null
+El ? indica que es nullable (puede ser nulo)
+Esto es safety null de Kotlin
+
+Pregunta:
+Le mande los 3 codigos (App, Fraccion, Calculadora)
+Y le pegue el error que me da ya que no lo encontraba
+
+RTA:
+¡Tienes toda la razón! Gracias por la información detallada del error de compilación. Eso es crucial.El problema no está en el código de App.kten el archivo Calculadora.kt. El error es muy claro: Unresolved reference 'InputMismatchException'.
+
+Esto significa que, aunque has manejado las excepciones de forma correcta, olvidaste incluir la declaración de importación de la clase InputMismatchException en la parte superior del archivo Calculadora.kt. Cada archivo de Kotlin es un módulo independiente que necesita importar las clases que utiliza.
+
+He agregado la línea de import necesaria. Aquí tienes el archivo Calculadora.kt corregido.
+Calculadora.kt - Corregido
+1 ago, 10:26
+
+Resumen de los cambios
+
+He agregado la línea import java.util.InputMismatchException al inicio del archivo Calculadora.kt.
+
+Con esta corrección, tu proyecto debería compilarse y ejecutarse sin problemas. Prueba a construirlo de nuevo y me cuentas si todo funciona como esperas.
